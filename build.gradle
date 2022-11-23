@@ -1,0 +1,29 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '2.7.5'
+	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+}
+
+group = 'lv.ez'
+version = '0.0.1-SNAPSHOT'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation group: 'org.modelmapper', name: 'modelmapper', version: '2.4.1'
+	implementation 'io.lettuce:lettuce-core:6.2.1.RELEASE'
+	implementation 'io.ipgeolocation:ipgeolocation:1.0.12'
+	implementation 'org.liquibase:liquibase-core'
+	compileOnly 'org.projectlombok:lombok:1.18.24'
+	runtimeOnly 'com.h2database:h2'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
